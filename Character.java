@@ -1,3 +1,5 @@
+import java.util.StringTokenizer;
+
 public class Character { 
 
     // xp points per level
@@ -18,6 +20,33 @@ public class Character {
 
         setExperience(0);
         setLevel(1);
+    }
+
+    // DO NOT use this constructor unless you are reading from a data file (see documentation)
+    Character(String dataInput) {
+        StringTokenizer st = new StringTokenizer(dataInput, "/");
+
+        // five elements: name, level, experience, class, race
+        String[] data = new String[5];
+
+        for(int i = 0; i < 5; i++) {
+            data[i] = st.nextToken();
+        }
+
+        setName(data[0]);
+        setLevel(Integer.parseInt(data[1]));
+        setExperience(Integer.parseInt(data[2]));
+        setClass(data[3]);
+        setRace(data[4]);
+    }
+
+    @Override
+    public String toString() {
+
+        String output = name + '/' + level + '/' + experience + '/' + charClass + '/' + charRace;
+
+        return output;
+
     }
 
     // for leveling up
