@@ -10,3 +10,5 @@ Intended feature list:
 * Dice rolling system
 
 * GUI using JavaFX technology
+
+**Project on hold indefinitely.**
